@@ -10,23 +10,23 @@ class Login extends CI_Controller {
 
     function index() 
     {
-        //$this->load->view("admin/layout/header.php");
         $this->load->view('admin/login');
-        //$this->load->view('admin/layout/footer.php');
     }
-    public function dologin() {
-        //$this->output->enable_profiler(TRUE);
+    public function dologin() 
+    {
+        
         $this->form_validation->set_rules('email', 'Email', 'required');
 	$this->form_validation->set_rules('password', 'Password', 'required');
         
-        if ($this->form_validation->run() == FALSE){
-            
-            redirect("login");
+        if ($this->form_validation->run() == FALSE)
+        {
+                redirect("login");
         }
         
         $email= $this->input->post('email');
         $password = $this->input->post('password');
-        $result = array('email' => $email, 'password' => $password);
+        $type = '4';
+        $result = array('email' => $email, 'password' => $password, '4' => $type);
         
         $user = $this->login_model->isAdmin($result);
     
@@ -37,6 +37,8 @@ class Login extends CI_Controller {
 			'session_id' => $user->emp_id,
 			'session_name' => $user->emp_name,
 			'session_email' => $user->emp_email,
+                        'session_status' => $user->emp_type,
+                        'session_islogged' => true
 			);
           $this->session->set_userdata($admindata);
           redirect("dashboard");
@@ -44,11 +46,22 @@ class Login extends CI_Controller {
         else 
         {
             $this->session->set_userdata(array(
-                'sess_ci_admin_msg' => "Invalid Login. ",
-                'sess_ci_admin_msg_type' => 'error',
-                'sess_ci_admin_islogged' => false
+                'session_msg' => "Invalid Login. ",
+                'session_msg_type' => 'error',
+                'session_islogged' => false
             ));
             redirect("login");
         }
     }
+    public function logout() 
+    {
+            $this->load->library('session');
+            $this->session->sess_destroy();
+            $this->session->set_userdata(array(
+                       'session_msg' => " You Have Logged Out successfully... ",
+                       'session_msg_type' => 'success'
+                        ));
+            redirect("login");
+    }
+       
 }
