@@ -26,6 +26,11 @@
 
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>bower_components/jquery/jquery.min.js"></script>
+    <!-- angular js -->
+    <script src="<?php echo base_url(); ?>angular/js/angular.min.js"></script>
+    <script src="<?php echo base_url(); ?>angular/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="<?php echo base_url(); ?>angular/app/app.js"></script>
+    <!-- end angular js -->
 <script>
     $(document).ready(function(){
         $(".add_employee").colorbox({iframe:true, width:"80%", height:"90%"});
@@ -84,10 +89,10 @@
                 
                     <li><a class="add_employee">Conectado como Empleado</a></li>
                     <li class="divider"></li>
-                    <li><a class="add_employee" href="<?php echo base_url(); ?>employee/update_employee_profile.php?update=<?php// echo $_SESSION['session_admin_id']; ?>">Mi perfil</a></li>
+                    <li><a class="add_employee" href="<?php echo base_url(); ?>employee/update_employee_profile.php?update=<?php // echo $_SESSION['session_admin_id']; ?>">Mi perfil</a></li>
                     <li><a class="add_employee">Conectado como administrador</a></li>
                     <li class="divider"></li>
-                    <li><a class="add_employee" href="<?php echo base_url(); ?>employee/update_employee_profile.php?update=<?php// echo $_SESSION['session_admin_id']; ?>">Mi perfil</a></li>
+                    <li><a class="add_employee" href="<?php echo base_url(); ?>employee/update_employee_profile.php?update=<?php // echo $_SESSION['session_admin_id']; ?>">Mi perfil</a></li>
                 
 
                     <li class="divider"></li>

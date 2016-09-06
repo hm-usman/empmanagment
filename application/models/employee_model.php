@@ -11,6 +11,24 @@ class Employee_model extends CI_model{
                 return $query->result_array();
         
     }
+    
+    public function get_single_emp($emp_id=0)
+    {
+        $querydb1 = $this->db->select('*')->from("alpp_emp")
+                ->where('emp_id',$emp_id);
+                //->where('status','<>','1')
+                //->where('date(added_on)', date("Y-m-d"));
+                //if($con_id){
+                    //$this->db->where('con_id', $con_id);
+                //}
+        $q = $querydb1->get();
+        if( $q->num_rows() > 0 ) {
+            $result = $q->result();
+            return $result[0];
+        } else {
+            return false;
+        }   
+    }
    
     public function update($emp_id,$data)
     {
