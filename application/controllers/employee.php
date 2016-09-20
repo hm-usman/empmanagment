@@ -45,13 +45,20 @@ class Employee extends CI_Controller {
             redirect('employee', 'refresh');
         }
         
-        public function get_single_emp($emp_id=0)
+        public function get_single_emp($emp_id=1)
         {
                 header('Access-Control-Allow-Origin: *');
                 header("Content-Type: application/json");
                 echo json_encode($this->employee_model->get_single_emp($emp_id));
-                //echo" ";
-                //print_r(json_encode($alpp_emp));
+                
+                
+        }
+        public function get_all_emp()
+        {
+                header('Access-Control-Allow-Origin: *');
+                header("Content-Type: application/json");
+                echo json_encode($this->employee_model->get_emp());
+                
                 
         }
 }

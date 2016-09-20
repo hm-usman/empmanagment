@@ -10,8 +10,8 @@ app.filter('startFrom', function() {
     }
 });
 app.controller('customersCrtl', function ($scope, $http, $timeout) {
-    $http.get('../ajax/employees/emp_list.php').success(function(data){
-        //alert(data);
+    $http.get('employee/get_all_emp').success(function(data){
+        
         $scope.list = data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 10; //max no of items to display in a page
@@ -35,7 +35,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $scope.emp_name = "";
     }
     $scope.getAll = function(){
-        $http.get("../ajax/employees/emp_list.php").success(function(response){
+        $http.get("employee/get_all_emp").success(function(response){
             $scope.list = response;
         });
     }
@@ -84,9 +84,9 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         .success(function (data, status, headers, config){             
             // tell the user product record was updated
             
-
+            alert("Success");
             // refresh the product list
-            //$scope.getAll();
+            $scope.getAll();
         });
     }
     $scope.deleteProduct = function(emp_file){

@@ -7,8 +7,33 @@
             <div class="box-header well" data-original-title="">
                 <h2><i class="glyphicon glyphicon-star-empty"></i>  Ver empleados </h2>
             </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">PageSize:
+                    <select ng-model="entryLimit" class="form-control">
+                        <option>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                </div>
+                <div class="col-md-3">Filter:
+                    <input type="text" ng-model="search" ng-change="filter()" placeholder="Filter" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <h5>Filtered {{ filtered.length }} of {{ totalItems}} total customers</h5>
+                </div>
+                <div class="col-md-2 pull-right" style="padding-right: 30px;">
+                    <div class="fixed-action-btn" style="bottom:45px; right:24px;">
+                        <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red" href="#modal-product-form" ng-click="showCreateForm()"><a href="#" class="btn btn-primary"> add</a>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
             <div class="box-content">
-              <table class="table table-striped table-bordered bootstrap-datatable datatable responsive" style=" font-size: 12px;">
+              <table class="table table-striped table-bordered  responsive" style=" font-size: 12px;">
                 <thead>
                     <tr>
                         <th>Ficha</th>
@@ -22,30 +47,30 @@
                     </tr>
                 </thead>
             <tbody>
-            <tr>
-                 <?php foreach ($alpp_emp as $emp): ?>
-                    <td><?php echo $emp['emp_file']; ?></td>
-                    <td><?php echo $emp['emp_name']; ?></td>
-                    <td><?php echo $emp['emp_department']; ?></td>
-                    <td><?php echo $emp['emp_cellnum']; ?></td>
-                    <td><?php echo $emp['emp_current_contract']; ?></td>
-                    <td><?php echo $emp['emp_name']; ?></td>
-                    <td><?php echo $emp['emp_name']; ?></td>
+            <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                
+                    <td>{{data.emp_file}}</td>
+                    <td>{{data.emp_name}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><div class="dropdown">
                             <button class="btn btn-default btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Actions
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li role="presentation"><a href="<?php base_url();?>/empmanagment/empholiday/single/<?php echo $emp['emp_id'];?>" role="menuitem" tabindex="-1">Modificar Saldos</a></li>
+                              <li role="presentation"><a href="" role="menuitem" tabindex="-1">Modificar Saldos</a></li>
                               <li role="presentation"><a href="#" data-toggle="modal" data-target="#notes">Solicitud</a></li>
                               <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-ok"></span>Status</a></li>
                               <li role="presentation"><a href="#" data-toggle="modal" data-target="#notes"><span class="glyphicon glyphicon-file"></span>Notes</a></li>
-                              <li role="presentation"><a href="#" data-toggle="modal" ng-click="readOne(<?php echo $emp['emp_id']; ?>)" data-target="#edit"><span class="glyphicon glyphicon-edit "></span>Edit</a></li>
-                              <li role="presentation"><a href="<?php base_url();?>/empmanagment/employee/delete/<?php echo $emp['emp_id'];?>" onclick="return confirmation();"><span class="glyphicon glyphicon-trash "></span>Delete</a></li>
+                              <li role="presentation"><a href="#" data-toggle="modal" ng-click="readOne(data.emp_id)" data-target="#edit"><span class="glyphicon glyphicon-edit "></span>Edit</a></li>
+                              <li role="presentation"><a href="#" onclick="return confirmation();"><span class="glyphicon glyphicon-trash "></span>Delete</a></li>
                             </ul>
                         </div>
                     </td>
             </tr>
-                 <?php endforeach; ?>
+                 
             </tbody>
             </table>
             </div>
