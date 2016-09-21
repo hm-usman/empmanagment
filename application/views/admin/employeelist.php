@@ -231,11 +231,11 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2">Ficha</label>
                             <div class="col-sm-4">          
-                                <input type="text" class="form-control"  placeholder="Ficha" name="emp_file" >
+                                <input type="text" class="form-control"  placeholder="Ficha" name="emp_file" ng-model="emp_file">
                             </div>
                             <label class="control-label col-sm-2">Nombre</label>
                             <div class="col-sm-4">          
-                                <input type="text" class="form-control"  placeholder="Nombre" name="emp_name">
+                                <input type="text" class="form-control"  placeholder="Nombre" name="emp_name" ng-model="emp_name">
                             </div>
                         </div>
                         <div class="form-group">

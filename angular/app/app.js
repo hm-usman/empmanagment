@@ -55,6 +55,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
     }*/
     $scope.createEmployee = function(){
         // fields in key-value pairs
+        //alert($scope.emp_file);
         $http.post('employee/create_employee', {
                 'emp_file' : $scope.emp_file, 
                 'emp_name' : $scope.emp_name, 
@@ -67,19 +68,24 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
                 'emp_type' : $scope.emp_type,
             }
         ).success(function (data, status, headers, config) {
-            console.log(data);
+            //console.log(data);
             // tell the user new product was created
             //Materialize.toast(data);
 
             // close modal
             //$('#add').closeModal();
             
-            alert("Success");
+            alert(data);
             // clear modal content
-            $scope.clearForm();
+           // $scope.clearForm();
 
             // refresh the list
             $scope.getAll();
+        })
+        .error(function(data, status, headers, config){
+            alert("Ajax file not found");
+            return;
+            
         });
     }
     $scope.updateEmployee = function(){
@@ -103,12 +109,12 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         });
     }
     $scope.deleteEmployee = function(id){
-        alert(id);
+        //alert(id);
         // ask the user if he is sure to delete the record
         if(confirm("Are you sure?")){
             // post the id of product to be deleted
-            $http.post('employee/delet/'+emp_id, {
-                'emp_id' : emp_id
+            $http.post('employee/delete/'+id, {
+                //'emp_id' : id
             }).success(function (data, status, headers, config){
 
                 // tell the user product was deleted

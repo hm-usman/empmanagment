@@ -23,18 +23,22 @@ class Employee extends CI_Controller {
         public function create_employee()
         {
             $post_data = json_decode(file_get_contents("php://input"));          
+            //print_r($post_data);
+            //return ; 
+            //$post_data;
             $data = array(
 		'emp_file' => $post_data->emp_file,
 		'emp_name' => $post_data->emp_name,
-                'emp_cellnum' => $post_data->emp_cellnum,
-                'emp_department' => $post_data->emp_department,
-                'emp_current_contract' => $post_data->emp_current_contract,
-                'emp_email' => $post_data->emp_email,
-                'emp_password' => $post_data->emp_password,
-                'emp_status' => $post_data->emp_status,
-                'emp_type' => $post_data->emp_type
+                //'emp_cellnum' => $post_data->emp_cellnum,
+               // 'emp_department' => $post_data->emp_department,
+                //'emp_current_contract' => $post_data->emp_current_contract,
+                //'emp_email' => $post_data->emp_email,
+               // 'emp_password' => $post_data->emp_password,
+                //'emp_status' => $post_data->emp_status,
+               // 'emp_type' => $post_data->emp_type
                 );
-            $this->employee_model->add($data);
+            $this->employee_model->addemp($data);
+            echo "sucess";
         }
         public function update($emp_id=0)
         {
