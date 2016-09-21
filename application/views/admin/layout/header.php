@@ -87,7 +87,7 @@
                 <ul class="dropdown-menu">
                     
                 
-                    <li><a class="add_employee">Conectado como Empleado</a></li>
+                    <li><a href="#"  data-toggle="modal" data-target="#add">Conectado como Empleado</a></li>
                     <li class="divider"></li>
                     <li><a class="add_employee" href="<?php echo base_url(); ?>employee/update_employee_profile.php?update=<?php // echo $_SESSION['session_admin_id']; ?>">Mi perfil</a></li>
                     <li><a class="add_employee">Conectado como administrador</a></li>

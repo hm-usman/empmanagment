@@ -29,7 +29,11 @@ class Employee_model extends CI_model{
             return false;
         }   
     }
-   
+    public function add()
+    {
+            $this->db->insert('alpp_emp', $data);
+        
+    }
     public function update($emp_id,$data)
     {
             $this->db->where('emp_id',$emp_id);

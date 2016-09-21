@@ -39,7 +39,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
             $scope.list = response;
         });
     }
-    $scope.showCreateForm = function(){
+   /* $scope.showCreateForm = function(){
         // clear form
         $scope.clearForm();
 
@@ -47,27 +47,34 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $('#modal-product-title').text("Create New Employee");
 
         // hide update product button
-        $('#btn-update-product').hide();
+        //$('#btn-update-product').hide();
 
         // show create product button
         $('#btn-create-product').show();
 
-    }
+    }*/
     $scope.createEmployee = function(){
         // fields in key-value pairs
-        $http.post('../ajax/employees/create_employee.php', {
+        $http.post('employee/create_employee', {
                 'emp_file' : $scope.emp_file, 
                 'emp_name' : $scope.emp_name, 
-                //'price' : $scope.price
+                'emp_cellnum' : $scope.emp_cellnum,
+                'emp_department' : $scope.emp_department,
+                'emp_current_contract' : $scope.emp_current_contract,
+                'emp_email' : $scope.emp_email,
+                'emp_password' : $scope.emp_password,
+                'emp_status' : $scope.emp_status,
+                'emp_type' : $scope.emp_type,
             }
         ).success(function (data, status, headers, config) {
             console.log(data);
             // tell the user new product was created
-            Materialize.toast(data);
+            //Materialize.toast(data);
 
             // close modal
-            $('#modal-product-form').closeModal();
-
+            //$('#add').closeModal();
+            
+            alert("Success");
             // clear modal content
             $scope.clearForm();
 
@@ -79,26 +86,33 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
         $http.post('employee/update/'+$scope.emp_id, {
             'emp_file' : $scope.emp_file, 
             'emp_name' : $scope.emp_name, 
-            
+            'emp_cellnum' : $scope.emp_cellnum,
+            'emp_department' : $scope.emp_department,
+            'emp_current_contract' : $scope.emp_current_contract,
+            'emp_email' : $scope.emp_email,
+            'emp_password' : $scope.emp_password,
+            'emp_status' : $scope.emp_status,
+            'emp_type' : $scope.emp_type,
         })
         .success(function (data, status, headers, config){             
             // tell the user product record was updated
-            
+                        
             alert("Success");
             // refresh the product list
             $scope.getAll();
         });
     }
-    $scope.deleteProduct = function(emp_file){
+    $scope.deleteEmployee = function(id){
+        alert(id);
         // ask the user if he is sure to delete the record
         if(confirm("Are you sure?")){
             // post the id of product to be deleted
-            $http.post('../ajax/employees/delete_employee.php', {
-                'emp_file' : emp_file
+            $http.post('employee/delet/'+emp_id, {
+                'emp_id' : emp_id
             }).success(function (data, status, headers, config){
 
                 // tell the user product was deleted
-                Materialize.toast(data, 4000);
+                //Materialize.toast(data, 4000);
 
                 // refresh the list
                 $scope.getAll();
@@ -118,6 +132,13 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
             $scope.emp_id = data["emp_id"];
             $scope.emp_file = data["emp_file"];
             $scope.emp_name = data["emp_name"];
+            $scope.emp_cellnum = data["emp_cellnum"];
+            $scope.emp_department = data["emp_department"];
+            $scope.emp_current_contract = data["emp_current_contract"];
+            $scope.emp_email = data["emp_email"];
+            $scope.emp_password = data["emp_password"];
+            $scope.emp_status = data["emp_status"];
+            $scope.emp_type = data["emp_type"];
             
             
         })
