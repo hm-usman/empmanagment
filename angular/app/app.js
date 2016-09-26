@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.bootstrap']);
+var app = angular.module('myApp', ['ui.bootstrap', 'ngRoute']);
 
 app.filter('startFrom', function() {
     return function(input, start) {
@@ -9,7 +9,7 @@ app.filter('startFrom', function() {
         return [];
     }
 });
-app.controller('customersCrtl', function ($scope, $http, $timeout) {
+app.controller('customersCrtl', function ($scope, $http, $timeout, $route, $routeParams, $location) {
     $http.get('employee/get_all_emp').success(function(data){
         
         $scope.list = data;
@@ -39,20 +39,6 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
             $scope.list = response;
         });
     }
-   /* $scope.showCreateForm = function(){
-        // clear form
-        $scope.clearForm();
-
-        // change modal title
-        $('#modal-product-title').text("Create New Employee");
-
-        // hide update product button
-        //$('#btn-update-product').hide();
-
-        // show create product button
-        $('#btn-create-product').show();
-
-    }*/
     $scope.createEmployee = function(){
         // fields in key-value pairs
         //alert($scope.emp_file);
@@ -75,7 +61,7 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
             // close modal
             //$('#add').closeModal();
             
-            alert(data);
+            alert("Successfully Added");
             // clear modal content
            // $scope.clearForm();
 
@@ -144,15 +130,37 @@ app.controller('customersCrtl', function ($scope, $http, $timeout) {
             $scope.emp_email = data["emp_email"];
             $scope.emp_password = data["emp_password"];
             $scope.emp_status = data["emp_status"];
-            $scope.emp_type = data["emp_type"];
-            
-            
+            $scope.emp_type = data["emp_type"];            
         })
         .error(function(data, status, headers, config){
             alert("Ajax file not found");
             return;
-            
         });
     }
-    
+    $scope.readHoliday = function(id){
+        alert(id);
+        // post id of product to be edited
+        $http.post('empholiday/single/'+id, {
+            //'emp_id' : id 
+        })
+        .success(function(data, status, headers, config){
+            alert(data['id']);
+            //return;
+                        
+        })
+        .error(function(data, status, headers, config){
+            alert("Ajax file not found");
+            return;       
+        });
+    }
+});
+myApp.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "admin/login.php"
+    })
+    .when("/empholiday", {
+        templateUrl : "admin/empholiday.php",
+        controller  : "customersCrtl"
+    })
 });

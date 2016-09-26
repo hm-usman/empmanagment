@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
 
     <meta charset="utf-8">
@@ -29,6 +29,7 @@
     <!-- angular js -->
     <script src="<?php echo base_url(); ?>angular/js/angular.min.js"></script>
     <script src="<?php echo base_url(); ?>angular/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <script src="<?php echo base_url(); ?>angular/js/angular-route.min.js"></script>
     <script src="<?php echo base_url(); ?>angular/app/app.js"></script>
     <!-- end angular js -->
 <script>
@@ -216,6 +217,7 @@
                <!-- <li><a href=""><i class="glyphicon glyphicon-list"></i> Ajuste de Saldos</a></li>-->
                                 
                         <li><a href="<?php echo base_url(); ?>login/logout"><i class="glyphicon glyphicon-lock"></i><span> Cerrar sesión</span></a></li>
+                        <li><a href="#/test">test</a></li>
                     </ul>
                  </div>
             </div>
@@ -226,3 +228,4 @@
         <div id="content" class="col-lg-10 col-sm-10">
             <!-- content starts -->
           
+            
