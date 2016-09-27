@@ -38,9 +38,11 @@
 |
 */
 
-$route['default_controller'] = "login";
+$route['default_controller'] = "welcome";
 $route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
 
+$route['templates/(:any)'] = "templates/view/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

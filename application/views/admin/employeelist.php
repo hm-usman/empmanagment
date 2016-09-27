@@ -1,6 +1,5 @@
 <!-- angular templating -->
-            <!-- this is where content will be injected -->
-<div ng-view></div> 
+<!-- this is where content will be injected -->
 <div ng-controller="customersCrtl">
             <div class="row">
             <div class="box col-md-12">
@@ -56,11 +55,11 @@
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" tabindex="-1">
                               <li role="presentation"><a href="" role="menuitem" tabindex="-1" ng-click="readHoliday(data.emp_id)">Modificar Saldos</a></li>
-                              <li role="presentation"><a href="#" data-toggle="modal" data-target="#notes">Solicitud</a></li>
-                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-ok"></span>Status</a></li>
-                              <li role="presentation"><a href="#" data-toggle="modal" data-target="#notes"><span class="glyphicon glyphicon-file"></span>Notes</a></li>
-                              <li role="presentation"><a href="#" data-toggle="modal" ng-click="readOne(data.emp_id)" data-target="#edit"><span class="glyphicon glyphicon-edit "></span>Edit</a></li>
-                              <li role="presentation"><a href="#" ng-click="deleteEmployee(data.emp_id)"><span class="glyphicon glyphicon-trash "></span>Delete</a></li>
+                              <li role="presentation"><a  data-toggle="modal" data-target="#notes">Solicitud</a></li>
+                              <li role="presentation"><a  role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-ok"></span>Status</a></li>
+                              <li role="presentation"><a  data-toggle="modal" data-target="#notes"><span class="glyphicon glyphicon-file"></span>Notes</a></li>
+                              <li role="presentation"><a  data-toggle="modal" ng-click="readOne(data.emp_id)" data-target="#edit"><span class="glyphicon glyphicon-edit "></span>Edit</a></li>
+                              <li role="presentation"><a  ng-click="deleteEmployee(data.emp_id)"><span class="glyphicon glyphicon-trash "></span>Delete</a></li>
                             </ul>
                         </div>
                     </td>

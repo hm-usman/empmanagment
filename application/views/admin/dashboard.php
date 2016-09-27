@@ -1,5 +1,5 @@
-        
-             <div class=" row">
+
+    <div class=" row">
     <div class="col-md-3 col-sm-3 col-xs-6">
         <a data-toggle="tooltip" title="" class="well top-block" href="employee/active_emp_reports.php" data-original-title=" Empleados activos ">
             <i class="glyphicon glyphicon-user blue"></i>
@@ -55,4 +55,4 @@
     </div>
   </div>
 
-</div>
+</div> 

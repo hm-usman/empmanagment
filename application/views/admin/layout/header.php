@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" >
 <head>
 
     <meta charset="utf-8">
     <title>Employee Management Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The styles -->
-    
     <link href="<?php echo base_url(); ?>css/bootstrap-cerulean.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>bower_components/datatables/media/css/demo_table_1.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/charisma-app.css" rel="stylesheet">
@@ -32,30 +31,7 @@
     <script src="<?php echo base_url(); ?>angular/js/angular-route.min.js"></script>
     <script src="<?php echo base_url(); ?>angular/app/app.js"></script>
     <!-- end angular js -->
-<script>
-    $(document).ready(function(){
-        $(".add_employee").colorbox({iframe:true, width:"80%", height:"90%"});
-        $(".add_employee_balance").colorbox({iframe:true, width:"90%", height:"95%"});
-        
-        $(".add_monthly").colorbox({iframe:true, width:"70%", height:"80%"});
-        $(".add_leave_multi").colorbox({iframe:true, width:"80%", height:"90%"});
-        
-        $(".add_employee_notes").colorbox({iframe:true, width:"70%", height:"80%"});
-             $(".add_holiday").colorbox({iframe:true, width:"40%", height:"60%"});
-        $(".add_leave").colorbox({iframe:true, width:"40%", height:"90%"});
-            $(".status_leave").colorbox({iframe:true, width:"40%", height:"50%"});
-    
-    });
-    /*
-    $(document).ready(function() {
-        $('#example').DataTable( {
-            "paging":   false,
-            "ordering": false,
-            "info":     false
-        } );
-    } );
-    */
-</script>     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -65,7 +41,7 @@
 
 </head>
 
-<body>
+<body ng-app="main-App">
    <!-- topbar starts -->
     <div class="navbar navbar-default" role="navigation">
 
@@ -119,12 +95,12 @@
                                                  
                         </li>
                         
-                        <li><a class="ajax-link" href="<?php echo base_url(); ?>/dashboard"><i class="glyphicon glyphicon-home"></i><span> Inicio</span></a></li>
+                        <li><a class="ajax-link" href="<?php echo base_url(); ?>#/"><i class="glyphicon glyphicon-home"></i><span> Inicio</span></a></li>
                         
                                 <li class="accordion">
                                     <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Empleados</span></a>
                                     <ul class="nav nav-pills nav-stacked">
-                                        <li><a href="<?php echo base_url(); ?>employee"><i class="glyphicon glyphicon-icon-user"></i><span> Ver empleados </span></a></li>
+                                        <li><a href="<?php echo base_url(); ?>#employee"><i class="glyphicon glyphicon-icon-user"></i><span> Ver empleados </span></a></li>
                                         
                                     </ul>
                                 </li>
@@ -206,18 +182,15 @@
                                 
                             </ul>
                         </li>
-                        <!--
-                        <li><a href="<?php echo base_url(); ?>settings/permissions.php"><i class="glyphicon glyphicon-globe"></i><span> PREMISOLOGÍA</span></a></li>
-                        -->
+                        
                         <li><a href="<?php echo base_url(); ?>settings/alerts.php"><i class="glyphicon glyphicon-globe"></i><span> System Alerts</span></a></li>
 
                                   
                 <li class="ajax-link"><a class="add_leave" href="<?php echo base_url(); ?>leave/add_leave.php"><i class="glyphicon glyphicon-list"></i><span> Presentar una solicitud de licencia</span></a></li>
                 <li><a href="<?php echo base_url(); ?>leave/leave_list.php"><i class="glyphicon glyphicon-list"></i> Historial </a></li>
-               <!-- <li><a href=""><i class="glyphicon glyphicon-list"></i> Ajuste de Saldos</a></li>-->
-                                
+                           
                         <li><a href="<?php echo base_url(); ?>login/logout"><i class="glyphicon glyphicon-lock"></i><span> Cerrar sesión</span></a></li>
-                        <li><a href="#/test">test</a></li>
+                       
                     </ul>
                  </div>
             </div>
@@ -227,5 +200,5 @@
 
         <div id="content" class="col-lg-10 col-sm-10">
             <!-- content starts -->
-          
+        
             

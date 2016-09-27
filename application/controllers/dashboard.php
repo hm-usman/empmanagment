@@ -6,14 +6,14 @@ class Dashboard extends CI_Controller {
             parent::__construct();
             $this->load->library('session');
             if($this->session->userdata('session_islogged') != TRUE) {
-                    redirect('login', 'refresh');
+                    //redirect('login', 'refresh');
             }
   	}
 	
 	public function index()
 	{  
-            $this->load->view("admin/layout/header.php");
+            //$this->load->view("admin/layout/header.php");
             $this->load->view('admin/dashboard');
-            $this->load->view('admin/layout/footer.php'); 
+            //$this->load->view('admin/layout/footer.php'); 
 	}  
 }

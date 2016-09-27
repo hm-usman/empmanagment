@@ -1,5 +1,21 @@
-var app = angular.module('myApp', ['ui.bootstrap', 'ngRoute']);
-
+var app = angular.module('main-App', [ 'ngRoute']);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl: 'dashboard',
+    })
+    .when("/dashboard1", {
+        templateUrl : "dashboard"
+    })
+    .when("/employee", {
+        templateUrl : "employee/index",
+        //controller: 'customersCrtl'
+    })
+    .when("/test", {
+        templateUrl: 'templates/items.html'
+        //controller: 'ItemController'
+    })
+});
 app.filter('startFrom', function() {
     return function(input, start) {
         if(input) {
@@ -154,13 +170,4 @@ app.controller('customersCrtl', function ($scope, $http, $timeout, $route, $rout
         });
     }
 });
-myApp.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : "admin/login.php"
-    })
-    .when("/empholiday", {
-        templateUrl : "admin/empholiday.php",
-        controller  : "customersCrtl"
-    })
-});
+

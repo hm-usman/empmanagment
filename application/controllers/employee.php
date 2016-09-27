@@ -6,7 +6,7 @@ class Employee extends CI_Controller {
                 parent::__construct();
                 $this->load->library('session');
                 if($this->session->userdata('session_islogged') != TRUE) {
-                    redirect('login', 'refresh');
+                    //redirect('login', 'refresh');
             }
                 $this->load->model('employee_model');
                 $this->load->helper('url_helper');
@@ -14,11 +14,11 @@ class Employee extends CI_Controller {
 
         public function index()
         {
-                $data['alpp_emp'] = $this->employee_model->get_emp();
-                
-                $this->load->view('admin/layout/header', $data);
-                $this->load->view('admin/employeelist', $data);
-                $this->load->view('admin/layout/footer', $data);
+                //$data['alpp_emp'] = $this->employee_model->get_emp();
+                //echo "yyy";
+                //$this->load->view('admin/layout/header', $data);
+                $this->load->view('admin/employeelist');
+                //$this->load->view('admin/layout/footer', $data);
         }
         public function create_employee()
         {
