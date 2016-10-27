@@ -25,6 +25,7 @@
 
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>bower_components/jquery/jquery.min.js"></script>
+    
     <!-- angular js -->
     <script src="<?php echo base_url(); ?>angular/js/angular.min.js"></script>
     <script src="<?php echo base_url(); ?>angular/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
@@ -73,7 +74,7 @@
                 
 
                     <li class="divider"></li>
-                    <li><a href="<?php echo base_url(); ?>login/logout">Cerrar sesión</a></li>
+                    <li><a href="<?php echo base_url(); ?>#logout">Cerrar sesión</a></li>
                 </ul>
             </div>
 
@@ -95,7 +96,7 @@
                                                  
                         </li>
                         
-                        <li><a class="ajax-link" href="<?php echo base_url(); ?>#/"><i class="glyphicon glyphicon-home"></i><span> Inicio</span></a></li>
+                        <li><a class="" href="<?php echo base_url(); ?>#/"><i class="glyphicon glyphicon-home"></i><span> Inicio</span></a></li>
                         
                                 <li class="accordion">
                                     <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Empleados</span></a>
@@ -107,15 +108,15 @@
                                 <li class="accordion">
                                     <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Ingresar Solicitud</span></a>
                                     <ul class="nav nav-pills nav-stacked">
-                                        <li class="ajax-link"><a  class="add_leave_multi" href="<?php echo base_url(); ?>leave/add_multiple_leave.php"><i class="glyphicon glyphicon-list"></i><span> Ingresar Solicitud</span></a></li>
+                                        <li class="ajax-link"><a href=""  data-toggle="modal" data-target="#add_multiple_leave"><i class="glyphicon glyphicon-list"></i><span> Ingresar Solicitud</span></a></li>
                                         <!--<li class="ajax-link"><a href="<?php// echo SITE_ADDRESS; ?>manage_requests.php"><i class="glyphicon glyphicon-file"></i><span> Manage Requests</span></a></li>-->
-                                        <li class="ajax-link"><a href="<?php echo base_url(); ?>leave/leave_list.php"><i class="glyphicon glyphicon-eye-open"></i><span> Historial</span></a></li>
+                                        <li class="ajax-link"><a href="#leavelist"><i class="glyphicon glyphicon-eye-open"></i><span> Historial</span></a></li>
                                     </ul>
                                 </li>
                                 <li class="accordion">
                                     <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Listado de Feriados</span></a>
                                     <ul class="nav nav-pills nav-stacked">
-                                        <li class="ajax-link"><a href="<?php echo base_url(); ?>employee/holidays_list.php"><i class="glyphicon glyphicon-random"></i><span> Feriados</span></a></li>
+                                        <li class="ajax-link"><a href="<?php echo base_url(); ?>#holidaylist"><i class="glyphicon glyphicon-random"></i><span> Feriados</span></a></li>
                                         
                                     </ul>
                                 </li>
@@ -151,9 +152,9 @@
                         <li class="accordion">
                             <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Ajuste de Saldos</span></a>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a class="add_monthly" href="<?php echo base_url(); ?>employee/add_monthly.php"><i class="glyphicon glyphicon-icon-user"></i><span> Add Manual Balance </span></a></li>
-                                <li class="ajax-link"><a href="<?php echo base_url(); ?>employee/emp_balance_feriado_legal_cron.php"><i class="glyphicon glyphicon-random"></i><span> Feriado Legal</span></a></li>
-                                <li class="ajax-link"><a href="<?php echo base_url(); ?>employee/emp_balance_dias_progresivos_cron.php"><i class="glyphicon glyphicon-random"></i><span> Dias Progresivos</span></a></li>
+                                <li><a href=""  data-toggle="modal" data-target="#addmonthly"><i class="glyphicon glyphicon-icon-user"></i><span> Add Manual Balance </span></a></li>
+                                <li class="ajax-link"><a href="<?php echo base_url(); ?>#feradio"><i class="glyphicon glyphicon-random"></i><span> Feriado Legal</span></a></li>
+                                <li class="ajax-link"><a href="<?php echo base_url(); ?>#dias"><i class="glyphicon glyphicon-random"></i><span> Dias Progresivos</span></a></li>
                              <!--   
                                 <li class="ajax-link"><a href="<?php echo base_url(); ?>employee/emp_balance_entry_alerts.php"><i class="glyphicon glyphicon-random"></i><span> Balance Alerts</span></a></li>
                              -->
@@ -164,8 +165,8 @@
                             <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Listado de Feriados</span></a>
                             <ul class="nav nav-pills nav-stacked">
                                 <li class="ajax-link"><a href="<?php echo base_url(); ?>employee/holidays_list.php"><i class="glyphicon glyphicon-random"></i><span> Feriados</span></a></li>
-                                <li class="ajax-link"><a class="add_holiday cboxElement" href="<?php echo base_url(); ?>employee/add_holiday_type.php"><i class="glyphicon glyphicon-random"></i><span> Holiday Type</span></a></li>
-                                <li class="ajax-link"><a class="add_holiday cboxElement" href="<?php echo base_url(); ?>employee/add_holiday.php"><i class="glyphicon glyphicon-random"></i><span> Add Holiday</span></a></li>
+                                <li class="ajax-link"><a  href=""  data-toggle="modal" data-target="#feriados"><i class="glyphicon glyphicon-random"></i><span> Holiday Type</span></a></li>
+                                <li class="ajax-link"><a  href=""  data-toggle="modal" data-target="#addferadieo"><i class="glyphicon glyphicon-random"></i><span> Add Holiday</span></a></li>
                             </ul>
                         </li>
                         
@@ -173,12 +174,12 @@
                         <li class="accordion">
                             <a href="#"><i class="glyphicon glyphicon-plus"></i><span>Informes</span></a>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="<?php echo base_url(); ?>employee/emp_reports.php"><i class="glyphicon glyphicon-list-alt"></i><span> Informe del empleado </span></a></li>
-                                <li><a href="<?php echo base_url(); ?>employee/emp_monthly_reports.php"><i class="glyphicon glyphicon-list-alt"></i><span> Saldo mensual</span></a></li>
-                                <li><a href="<?php echo base_url(); ?>employee/active_emp_reports.php"><i class="glyphicon glyphicon-list-alt"></i><span> Empleados activos</span></a></li>
-                                <li><a href="<?php echo base_url(); ?>employee/inactive_emp_reports.php"><i class="glyphicon glyphicon-list-alt"></i><span> En Empleados Activos</span></a></li>
-                                <li><a href="<?php echo base_url(); ?>employee/admin_emp_reports.php"><i class="glyphicon glyphicon-list-alt"></i><span>Supervisors/Managers</span></a></li>
-                                <li><a href="<?php echo base_url(); ?>employee/retired_emp_reports.php"><i class="glyphicon glyphicon-list-alt"></i><span> Retired Empleados</span></a></li>
+                                <li><a href="<?php echo base_url(); ?>#emp_reports"><i class="glyphicon glyphicon-list-alt"></i><span> Informe del empleado </span></a></li>
+                                <li><a href="<?php echo base_url(); ?>#emp_monthly_reports"><i class="glyphicon glyphicon-list-alt"></i><span> Saldo mensual</span></a></li>
+                                <li><a href="<?php echo base_url(); ?>#active_emp_reports"><i class="glyphicon glyphicon-list-alt"></i><span> Empleados activos</span></a></li>
+                                <li><a href="<?php echo base_url(); ?>#inactive_emp_reports"><i class="glyphicon glyphicon-list-alt"></i><span> En Empleados Activos</span></a></li>
+                                <li><a href="<?php echo base_url(); ?>#admin_emp_reports"><i class="glyphicon glyphicon-list-alt"></i><span>Supervisors/Managers</span></a></li>
+                                <li><a href="<?php echo base_url(); ?>#retired_emp_reports"><i class="glyphicon glyphicon-list-alt"></i><span> Retired Empleados</span></a></li>
                                 
                             </ul>
                         </li>
@@ -197,7 +198,212 @@
         </div>
         <!--/span-->
         <!-- left menu ends -->
+<div class="modal fade" id="add_multiple_leave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">ADD</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">                        
+    <div class="form-group">                    
+        <label class="control-label col-sm-2">1/2 Día</label>                     
+        <div class="col-sm-2">
+            <select name="half_day" class="form-control col-sm-2" >
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <label class="control-label col-sm-2">Buscador:</label>  
+        <div class="col-sm-3">
+            <input name="SearchText" class="form-control col-sm-3" type="text" value="" placeholder="Buscador Empleado">
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" name="Search" class="btn btn-block btn-info">Buscar</button>
+        </div>
+    </div>
+<div class="form-group">
+    <label class="control-label col-sm-2">Empleado</label>
+    <div class="col-sm-10">                                    
+           <fieldset class="multiselectcheck form-control">
+        <label> <input type="checkbox" id="togglecheck" value="select" onClick="do_this()" />&nbsp;&nbsp;&nbsp;Seleccionar todos</label>
+        
+        </fieldset>
+           
+        &nbsp;(Ficha - Nombre del Empleado - Departamento - DIAS PROGRESIVOS - FERIADO LEGAL)
+    </div>
+</div>
+      
+         
+            <div class="form-group">                    
+             <label class="control-label col-sm-2">Fecha de Inicio *</label>                     
+             <div class="col-sm-2">
+                 <input type="text" required="" class="form-control col-sm-4"  style="width:180px;"  id="leave_duration_from" name="leave_duration_from" value="<?php echo date('d-m-Y'); ?>">
+             </div>
+                            
+             <label class="control-label col-sm-2">Fecha de Término *</label>                     
+             <div class="col-sm-2">
+                 <input type="text" required="" class="form-control col-sm-4" style="width:180px;"  id="leave_duration_to" name="leave_duration_to" value="<?php echo date('d-m-Y'); ?>">
+             </div>
+         </div>
+         
+         <div class="form-group">
+              <label class="control-label col-sm-2">Tipo</label>
+                <div class="col-sm-2">
+                    <select name="trans_type" class="form-control" style="width:180px;" >
+                        <option value="F" >FERIADO LEGAL</option>
+                        <option value="D" >DIAS PROGRESIVOS</option>
+                        
+                    </select>
+                </div>
+         
+                        <label class="control-label col-sm-2">Estatus</label>
+                        <div class="col-sm-2">          
+                         <select name="approval" class="form-control" required="" style="width:180px;">
+                          <option value="">SELECCIONE</option>
+                        </select>
+                        </div>
+                    </div>
+          <div class="form-group">
+                         <label class="control-label col-sm-2">Observación</label>                     
+                        <div class="col-sm-8">
+                            <textarea  class="form-control" name="reason"  placeholder="Observación"></textarea>
+                        </div>
+                    </div>
 
+         <div class="form-group">        
+                        <div class="col-sm-offset-2 col-sm-4">
+                            <button type="submit" name="submit" class="btn btn-block btn-info">Guardar</button>
+                         </div>
+                    </div>  
+
+                    <br>
+                </form>
+               </div>
+              </div>
+            </div>
+          </div>
+        <!--ADD Fedaireo Type-->
+         <div class="modal fade" id="feriados" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">ADD FEDAIEREO</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="control-label">Holiday Type</label>
+                <input class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn default btn-success btn-block">Save</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!--ADD Fedaireo-->
+            <div class="modal fade" id="addferadieo" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">ADD Holiday</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="control-label">Holiday Type</label>
+                <select class="form-control" placeholder="SELECT">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Holiday Title</label>
+                <input class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Date</label>
+                <input class="form-control" type="date">
+            </div>
+            <div class="form-group">
+                <button class="btn btn default btn-success btn-block">Save</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- Add monthly Balance -->
+  <div class="modal fade" id="addmonthly" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body" ng-controller="customersCrtl">
+            <div class="col-sm-4">Date
+                <input type="datetime-local" class="form-control">
+                </div>
+            
+                <div class="col-md-6">
+                        <br>
+                        <p style="text-align: center;">
+                        Check from the list to include in updated queue
+                </p><br>
+                </div>
+            <table class="table table-striped table-bordered  responsive" style=" font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"</th>
+                        <th><a ng-click="sort_by('emp_file');"><i class="glyphicon glyphicon-sort"></i></a>&nbsp;Ficha</th>
+                        <th><a ng-click="sort_by('emp_name');"><i class="glyphicon glyphicon-sort"></i></a>&nbsp;Nombre</th>
+                        <th><a ng-click="sort_by('emp_department');"><i class="glyphicon glyphicon-sort"></i></a>&nbsp; FECHA INGRESO</th>
+                        <th><a ng-click="sort_by('emp_cellnum');"><i class="glyphicon glyphicon-sort"></i></a>&nbsp; FERIADO LEGAL</th>
+                        <th>Balance</th>                    </tr>
+                </thead>
+            <tbody>
+            <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" ng-show="filteredItems > 0">
+                
+                    <td><input type="checkbox"</td>
+                    <td>{{data.emp_file}}</td>
+                    <td>{{data.emp_name}}</td>
+                    <td>{{data.emp_first_contract}}</td>
+                    <td>{{data.emp_cellnum}}</td>
+                    <td><input type="number" value="1.25"</td>
+            </tr>
+            </tbody>
+            </table>
+                 <div class="col-md-12">
+                        <h5 style="text-align: center;">
+                        Filtered {{ filtered.length }} of {{ totalItems}} total customers
+                </h5>
+                </div>
+                <div ng-show="filteredItems == 0">
+                        <h4>No customers found</h4>                    
+                </div>
+                <div  ng-show="filteredItems > 0">    
+                    <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination" previous-text="&laquo;" next-text="&raquo;"></div>
+                </div> 
+                <div class="form-group">
+                    <button class="btn btn-block btn-success">Save</button>
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+        
         <div id="content" class="col-lg-10 col-sm-10">
             <!-- content starts -->
         

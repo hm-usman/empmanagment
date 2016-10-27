@@ -1,5 +1,3 @@
-<!-- angular templating -->
-<!-- this is where content will be injected -->
 <div ng-controller="customersCrtl">
             <div class="row">
             <div class="box col-md-12">
@@ -53,11 +51,11 @@
                     <td><div class="dropdown">
                             <button class="btn btn-default btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Actions
                             <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" tabindex="-1">
-                              <li role="presentation"><a href="" role="menuitem" tabindex="-1" ng-click="readHoliday(data.emp_id)">Modificar Saldos</a></li>
-                              <li role="presentation"><a  data-toggle="modal" data-target="#notes">Solicitud</a></li>
+                            <ul class="dropdown-menu responsive" role="menu" aria-labelledby="menu1" tabindex="-1">
+                                <li role="presentation"><a href="<?php base_url();?>#holiday" role="menuitem" tabindex="-1">Modificar Saldos</a></li>
+                              <li role="presentation"><a  href="<?php base_url();?>#leave" role="menuitem" tabindex="-1">Solicitud</a></li>
                               <li role="presentation"><a  role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-ok"></span>Status</a></li>
-                              <li role="presentation"><a  data-toggle="modal" data-target="#notes"><span class="glyphicon glyphicon-file"></span>Notes</a></li>
+                              <li role="presentation"><a  data-toggle="modal" ng-click="readNotes(data.emp_id)" data-target="#notes"><span class="glyphicon glyphicon-file"></span>Notes</a></li>
                               <li role="presentation"><a  data-toggle="modal" ng-click="readOne(data.emp_id)" data-target="#edit"><span class="glyphicon glyphicon-edit "></span>Edit</a></li>
                               <li role="presentation"><a  ng-click="deleteEmployee(data.emp_id)"><span class="glyphicon glyphicon-trash "></span>Delete</a></li>
                             </ul>
@@ -70,7 +68,7 @@
                 <div ng-show="filteredItems == 0">
                         <h4>No customers found</h4>                    
                 </div>
-                <div class="responsive" ng-show="filteredItems > 0">    
+                <div  ng-show="filteredItems > 0">    
                     <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination" previous-text="&laquo;" next-text="&raquo;"></div>
                 </div>
             </div>
@@ -121,8 +119,8 @@
                         <td>
 
                         </td>
-                        <td>asd</td>
-                        <td>09-8-2016</td>
+                        <td ng-model="date"></td>
+                        <td></td>
                         <td>
                             <a  title="Remove Notes" class=" btn btn-danger btn-sm add_employee_notes" href="#"><i class="glyphicon glyphicon-trash icon-white"></i></a>
                         </td>
@@ -145,7 +143,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"><i>Employee Details</i></h4>
+                  <h4 class="modal-title">{{emp_name}}</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-horizontal" role="form">  
@@ -233,6 +231,7 @@
                             <label class="control-label col-sm-2">Ficha</label>
                             <div class="col-sm-4">          
                                 <input type="text" class="form-control"  placeholder="Ficha" name="emp_file" ng-model="emp_file">
+                                <span class="text-danger"><?php echo form_error('emp_file'); ?></span>
                             </div>
                             <label class="control-label col-sm-2">Nombre</label>
                             <div class="col-sm-4">          
@@ -247,7 +246,6 @@
                             <label class="control-label col-sm-2">Department</label>
                             <div class="col-sm-4">
                                 <select name="emp_department" ng-model="emp_department" class="form-control">
-                                    <option>Select</option>
                                     <option value="Indubal">Indubal</option>
                                     <option value="Soinb">Soinb</option>
                                     <option value="Appadmins">Appadmins</option>
@@ -274,7 +272,6 @@
                             <label class="control-label col-sm-2">Status</label>
                             <div class="col-sm-4">
                                 <select name="emp_status" ng-model="emp_status" class="form-control">
-                                    <option>Select</option>
                                     <option value="0">Active</option>
                                     <option value="1">Inactive</option>
                                     <option value="2">Retired</option>
@@ -282,8 +279,7 @@
                             </div>
                             <label class="control-label col-sm-2">User Type</label>
                             <div class="col-sm-4">
-                                <select name="emp_type" ng-model="emp_type" class="form-control" required="required">
-                                    <option>Select</option>
+                                <select name="emp_type" ng-model="emp_type" class="form-control">
                                     <option value="1">Worker</option>
                                     <option value="2">Supervisor</option>
                                     <option value="3">Manager</option>

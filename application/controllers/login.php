@@ -41,7 +41,7 @@ class Login extends CI_Controller {
                         'session_islogged' => true
 			);
           $this->session->set_userdata($admindata);
-          redirect("dashboard");
+          redirect("/");
         } 
         else 
         {

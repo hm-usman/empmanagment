@@ -44,4 +44,21 @@ class Employee_model extends CI_model{
                  $this->db->where('emp_id', $emp_id);
                  $this->db->delete('alpp_emp');  
     }
+    public function get_emp_notes($id=0)
+    {
+                $this->db->get('alpp_emp_notes', $id);
+        
+    }
+    public function holidays()
+    {
+        $this->db->select('alpp_transactions.trans_type');
+        $this->db->from('alpp_transaction');
+        $this->db->join('alpp_emp','alpp_emp.emp_id=alpp_transaction.emp_id');
+        $query3=$this->db->get();
+        $data=$query3->result_array();
+
+        
+    }
+    
+ 
 }

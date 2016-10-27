@@ -6,7 +6,7 @@ class Empholiday_model extends CI_Model {
 		$this->load->database();
 	}
 
-        public function get()
+        public function get_holiday()
         {
 		$query = $this->db->get('alpp_transactions');
 		return $query->result_array();
@@ -19,31 +19,13 @@ class Empholiday_model extends CI_Model {
                 return $query->result_array();
             
         }
-        public function add()
+        public function add_holiday($data)
         {
-            $this->load->helper('url');
-            $data = array(
-                        'emp_id' => $this->input->post('emp_id'),
-                        'amount' => $this->input->post('amount'),
-                        'date' => $this->input->post('date'),
-                        'trans_type' => $this->input->post('trans_type'),
-                        'status' => $this->input->post('status')
-                        );
-
              $this->db->insert('alpp_transactions', $data);
              return true;
         }
         public function update($id, $data)
         {   
-                $this->load->helper('url');
-                $data = array(
-                        'emp_id' => $this->input->post('emp_id'),
-                        'amount' => $this->input->post('amount'),
-                        'date' => $this->input->post('date'),
-                        'trans_type' => $this->input->post('trans_type'),
-                        'status' => $this->input->post('status')
-                        );
-
                 $this->db->where('id',$id);
                 $this->db->update('alpp_transactions',$data);
                 return true;
@@ -54,6 +36,23 @@ class Empholiday_model extends CI_Model {
                  $this->db->where('id', $id);
                  $this->db->delete('alpp_transactions');  
         }
+        public function get_single_holiday($id=0)
+    {
+        $querydb1 = $this->db->select('*')->from("alpp_transactions")
+                ->where('id',$id);
+                //->where('status','<>','1')
+                //->where('date(added_on)', date("Y-m-d"));
+                //if($con_id){
+                    //$this->db->where('con_id', $con_id);
+                //}
+        $q = $querydb1->get();
+        if( $q->num_rows() > 0 ) {
+            $result = $q->result();
+            return $result[0];
+        } else {
+            return false;
+        }   
+    }
         
 }
 
